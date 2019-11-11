@@ -31,13 +31,13 @@
 #if VERBOSE_LEVEL > 0
 #define error_user_return(x, args...) do { \
         char err_buffer[128]; \
-        sprintf(err_buffer,x,##args); \
+        snprintf(err_buffer,sizeof(err_buffer),x,##args); \
         show_msgbox("bFLT loader",err_buffer); \
         error_return(err_buffer); \
     } while (0)
 #define error_user_goto_error(x, args...) do { \
         char err_buffer[128]; \
-        sprintf(err_buffer,x,##args); \
+        snprintf(err_buffer,sizeof(err_buffer),x,##args); \
         show_msgbox("bFLT loader",err_buffer); \
         error_goto_error(err_buffer); \
     } while (0)

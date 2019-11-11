@@ -32,7 +32,7 @@ void msgbox(const char *title, const char *fmt, ...)
 
 	va_list args;
 	va_start(args, fmt);
-	vsprintf(content, fmt, args);
+	vsnprintf(content, sizeof(content), fmt, args);
 
 	show_msgbox(title, content);
 
@@ -243,7 +243,7 @@ extern "C" int zehn_load(NUC_FILE *file, void **mem_ptr, int (**entry)(int,char*
 	if(isKeyPressed(KEY_NSPIRE_CAT))
 	{
 		char info[1536];
-		sprintf(info, "Name: %s Version: %u\nAuthor: %s\nNotice: %s", application_name, application_version, application_author, application_notice);
+		snprintf(info, sizeof(info), "Name: %s Version: %u\nAuthor: %s\nNotice: %s", application_name, application_version, application_author, application_notice);
 		show_msgbox("Information about the executable", info);
 
 		return 2;

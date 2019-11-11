@@ -45,7 +45,7 @@ static int require(lua_State *L) {
 		luaL_error(L, "cannot load module " LUA_QS ": too many modules loaded", name);
 		return 1;
 	}
-	sprintf(modulepath, "%s.luax.tns", name);
+	snprintf(modulepath, sizeof(modulepath), "%s.luax.tns", name);
 	if (!file_each(get_documents_dir(), require_file_each_cb, modulepath)) {
 require_not_found:
 		luaL_error(L, "module " LUA_QS " not found", name);

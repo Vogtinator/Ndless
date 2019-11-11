@@ -14,7 +14,7 @@ if [ "$UNAME" = "cygwin" ]; then
 	DIRNAME="$(cygpath --path --windows "$DIRNAME")"
 fi
 
-GCC="$( (which arm-elf-gcc arm-none-eabi-gcc arm-linux-gnueabi-gcc | head -1) 2>/dev/null)"
+GCC="$( (which arm-none-eabi-gcc arm-elf-gcc arm-linux-gnueabi-gcc | head -1) 2>/dev/null)"
 home="${USERPROFILE:-$HOME}"
 mkdir -p "$home/.ndless/include"
 "$GCC" -mcpu=arm926ej-s -D _TINSPIRE -fuse-ld=gold "$@" -I "$home/.ndless/include" -I "${DIRNAME}/../include" -I "${DIRNAME}/../include/freetype2"

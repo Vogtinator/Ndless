@@ -263,7 +263,7 @@ int ld_exec_with_args(const char *path, int argsn, char *args[], void **resident
 			strcpy(prgm_name, prgm_name_noext);
 			strcat(prgm_name, ".tns");
 			struct assoc_file_each_cb_ctx context = {prgm_name, prgm_path, &isassoc};
-			file_each("/", assoc_file_each_cb, &context);
+			file_each(get_documents_dir(), assoc_file_each_cb, &context);
 		}
 		cfg_close();
 	}
